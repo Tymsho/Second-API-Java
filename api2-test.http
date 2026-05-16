@@ -1,0 +1,51 @@
+### ==========================================
+### PRUEBAS API 2 - INVENTARIO (Puerto 8081)
+### ==========================================
+
+### 1. Listar todos los artículos (Debería devolver una lista vacía `[]`)
+GET http://localhost:8081/api/articulos
+
+### 2. Crear un nuevo artículo
+### NOTA: Asumimos que tenés una categoría con ID 1 en la base de datos.
+POST http://localhost:8081/api/articulos
+Content-Type: application/json
+
+{
+  "nombre": "Resma de Hojas A4",
+  "stock": 50,
+  "precio": 4500.0,
+  "categoriaId": 1
+}
+
+### 3. Listar todos los artículos (Ahora debería aparecer la resma con ID 1)
+GET http://localhost:8081/api/articulos
+
+### 4. Modificar el artículo creado (ID 1)
+PUT http://localhost:8081/api/articulos/1
+Content-Type: application/json
+
+{
+  "nombre": "Resma de Hojas A4 - Premium",
+  "stock": 45,
+  "precio": 4800.0,
+  "categoriaId": 1
+}
+
+### 5. Borrar el artículo (ID 1)
+DELETE http://localhost:8081/api/articulos/1
+
+
+### ==========================================
+### PRUEBA DE VALIDACIONES (Error 400)
+### ==========================================
+
+### Forzar errores (Nombre vacío, stock negativo y precio en 0)
+POST http://localhost:8081/api/articulos
+Content-Type: application/json
+
+{
+  "nombre": "",
+  "stock": -5,
+  "precio": 0,
+  "categoriaId": 1
+}

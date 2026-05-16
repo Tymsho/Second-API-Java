@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Api Test ###
+api2-test.http
