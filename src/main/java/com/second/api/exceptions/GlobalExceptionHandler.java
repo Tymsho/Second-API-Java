@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
             String mensaje = error.getDefaultMessage();
             errores.put(campo, mensaje);
         });
-        return new ResponseEntity<>(errores, HttpStatus.BAD_ROUND); // Error 400
+        return new ResponseEntity<>(errores, HttpStatus.BAD_REQUEST); // Error 400
     }
 
     // 2. Captura los RuntimeException que lanzás en el Service (ej: "Artículo no encontrado")
